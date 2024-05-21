@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Database(models.Model):
+    title = models.CharField(max_length= 200  , default = ' ')
     pub_date = models.DateTimeField("publication date")
     
     irl_face_none = models.IntegerField(default=0) #0 pour aucun, 1 pour face cam , 2 pour irl
