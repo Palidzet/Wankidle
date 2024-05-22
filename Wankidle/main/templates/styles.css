@@ -1,0 +1,152 @@
+
+header {
+  
+  color: #fff;
+  padding: 20px 0;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.content {
+  padding: 50px 0;
+}
+
+/* met le fond d'écran de la page en noir*/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  
+  /*comment mettre une image  d'un dossier en fond d'écran*/
+  background-color: black;
+  
+ 
+
+
+}
+/* centre les boutons au milieu de la page*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/*fais en sorte que l'on puisse avoir un sous texte dans le boutn*/
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* si un boutton est un button-85 il faut le centrer au milieu de la page*/
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+
+  /*mets de lespace au dessus et en dessous des boutons*/
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /*augmente la taille des boutons*/
+  font-size: 1.2em;
+  
+
+
+  
+  
+  
+
+
+}
+
+
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    
+    #fffb00,
+    
+    #002bff
+    
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}

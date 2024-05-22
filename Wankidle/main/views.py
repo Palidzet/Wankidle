@@ -1,5 +1,10 @@
 from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("ZIZI MDR")
+
+
+from django.template import loader
+
+def members(request):
+  template = loader.get_template('main/templates.html')
+  return HttpResponse(template.render())
