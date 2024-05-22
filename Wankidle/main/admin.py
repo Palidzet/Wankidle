@@ -2,4 +2,7 @@ from django.contrib import admin
 
 from .models import Database
 
-admin.site.register(Database)
+class DatabaseAdmin(admin.ModelAdmin):
+    ordering = ['index']
+
+admin.site.register(Database,DatabaseAdmin)
