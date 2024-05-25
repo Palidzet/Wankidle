@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Bebas';
+  src: url('font/Bebas-Regular.ttf') format('truetype'); /* Ajustez le format selon votre fichier */
+}
+
+
+
 body{
  
   font-family: Arial, sans-serif;
@@ -7,28 +14,110 @@ body{
   background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
+.output {
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  direction: row;
+  height: 20vh;
+  
+
+}
+.output-true {
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: row;
+  font-size: 10px;
+  color: black;
+  text-align: center;
+  margin: 20px auto;
+  width : 120px;
+  height: 120px;
+  background-color: green;
+  border-color: black;
+  border-radius: 0%;
+  border :#000000 2px solid;
+
+  
+}
+
+.output-false {
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  direction: row;
+  font-size: 10px;
+  color: black;
+  text-align: center;
+  margin: 20px auto;
+  width : 120px;
+  height: 120px;
+  background-color: red;
+  border-color: black;
+  border-radius: 0%;
+  border :#000000 2px solid;
+
+  
+}
 
 .wordle-game {
   text-align: center;
   margin: 20px auto;
-  width: 50%;
-  background-color: white;
+  width: 85%;
+  background-color: gray;
   
   
   padding: 20px;
   border-radius: 10px;
+  position: relative;
+}
+
+/* Style pour le conteneur de la liste de vidéos */
+#video-list {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  max-height: 200px;
+  max-width: 250px;
+  overflow-y: auto;
+  margin-top: 10px;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white; /* Optionnel : ajoute un fond pour la visibilité */
+  position: absolute; /* Positionnement absolu */
+  top: 60px; /* Ajustez selon la hauteur de votre input */
+  left: 47%; /* Centrage horizontal */
+  transform: translateX(-50%); /* Centrage horizontal */
+  z-index: 1; /* Assurez que l'élément est au-dessus des autres */
 }
 
 
-h1 {
-  font-size: 40px;
+/* Style pour chaque élément de la liste de vidéos */
+#video-list div {
+  margin-bottom: 10px;
 }
 
-p {
-  font-size: 25px;
+/* Style pour les liens de vidéos */
+#video-list a {
+  display: block;
+  text-decoration: none;
+  color: black; /* Couleur du lien */
+  padding: 5px 0;
 }
+
+#video-list a:hover {
+  text-decoration: underline;
+}
+
+
 
 input[type="text"] {
   padding: 10px;
@@ -65,13 +154,16 @@ li {
 
 
 h1 {
+  font-family: 'Bebas';
   font-size: 70px;
   /*centre le titre*/
   text-align: center;
   /*ajoute une ombre au titre*/
   text-shadow: 2px 2px 4px #000000;
   /*ajoute une couleur au titre*/
-  color: darkblue;
+  color: white;
+  background-attachment: fixed;
+
 
 
 }
