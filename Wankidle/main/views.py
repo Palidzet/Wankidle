@@ -7,7 +7,7 @@ from random import randint
 import datetime as dt   
 from django.http import JsonResponse
 from .models import Database 
-
+import queue
 def hash(date):
  
     
@@ -20,13 +20,22 @@ def hash(date):
     intdate/=6
     nbresvideos = Database.objects.count()
     result = intdate % nbresvideos
-    return result
+    return int(result)
 
 
     
         
 
-
+test = []
+def search_in_database(elt , database):
+    for i in range(len(database)):
+        print(i)
+        print(elt)
+        print(database[0][0])
+        if database[i][0]==elt:
+            
+            return True
+    return False
 def search_videos(request):
     query = request.GET.get('q', '')
     if query:
@@ -50,7 +59,17 @@ def main(request):
             
             if data.count()== 1:
                 datatrue = Database.objects.filter(index=oui)
-                return render(request, 'main/templates.html', {'data': data, 'datatrue': datatrue})
+                if test!=[]:
+                    
+                    if search_in_database(data[0] , test)==False:
+                        
+                        test.insert(0 , data)
+                else:
+                    if test==[]:
+                        print("jappend")
+                        test.insert(0 , data)
+                
+                return render(request, 'main/templates.html', {'data': test, 'datatrue': datatrue})
             else:
                 return render(request, 'main/templates.html', {'data': None})
     else:

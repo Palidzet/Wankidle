@@ -1,98 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centered Buttons</title>
-  <link rel="stylesheet" href="../../static/main/newstyles.css">
-  <script src="../../static/main/search.js "></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wankidle</title>
+    <link rel="stylesheet" href="../../static/main/newstyles.css">
+    <script src="../../static/main/search.js"></script>
 </head>
 <body>
-  <h1>Wankidle</h1>
-  <div class="wordle-game">
-  
-    <form class="d-flex" role="search"  method="post">
-      {% csrf_token %}
-      <input class="field" type="text" id="search-input" placeholder="Entrez le nom d'une vidéo" name="testname" value="{{ test }}">
-      <button type="submit" id="submit-btn">Submit</button>
-      <div id="video-list"></div>
-  
-      
-      
-    </form>
-    <ul id="guess-list"></ul>
-    
-    {% for key in data %}
-    {% for key2 in datatrue %}
-      <div class="output">
-        
-        
-
-        {% if key.title == key2.title %}
-          <p class = "output-true">{{key.title}}</p>
-        {% else %}
-          <p class = "output-false">{{key.title}}</p>
-        {% endif %}
-        {% if key.views == key2.views %}
-          <p class = "output-true">{{key.views}}</p>
-        {% else %}
-          <p class = "output-false">{{key.views}}</p>
-        {% endif %}
-        {% if key.feat == key2.feat %}
-          <p class = "output-true">{{key.feat}}</p>
-        {% else %}
-          <p class = "output-false">{{key.feat}}</p>
-        {% endif %}
-        {% if key.duration == key2.duration %}
-          <p class = "output-true">{{key.duration}}</p>
-        {% else %}
-          <p class = "output-false">{{key.duration}}</p>
-        {% endif %}
-        {% if key.irl_face_none == key2.irl_face_none %}
-          <p class = "output-true">{{key.irl_face_none}}</p>
-        {% else %}
-          <p class = "output-false">{{key.irl_face_none}}</p>
-        {% endif %}
-        {% if key.feat_members == key2.feat_members %}
-          <p class = "output-true">{{key.feat_members}}</p>
-        {% else %}
-          <p class = "output-false">{{key.feat_members}}</p>
-        {% endif %}
-        {% if key.pub_date == key2.pub_date %}
-          <p class = "output-true">{{key.pub_date}}</p>
-        {% else %}
-          <p class = "output-false">{{key.pub_date}}</p>
-        {% endif %}
-        {% if key.game == key2.game %}
-          <p class = "output-true">{{key.game}}</p>
-        {% else %}
-          <p class = "output-false">{{key.game}}</p>
-        {% endif %}
-        {% if key.game_title == key2.game_title %}
-          <p class = "output-true">{{key.game_title}}</p>
-        {% else %}
-          <p class = "output-false">{{key.game_title}}</p>
-        {% endif %}
-        {% if key.miniature == key2.miniature %}
-          <image src= {{key.miniature}}  alt="thumbnail" width = "50" class= "output-true" >
-        {% else %}
-          <image src= {{key.miniature}}  alt="thumbnail" width = "50" class= "output-false" >
-        {% endif %}
-
-        
-      
-     
-        
-        
-        
-        
-      
-      
-      </div>
-    
-    {% endfor %}
-    {% endfor %}
-  </div>
- 
+    <h1>Wankidle</h1>
+    <div class="wordle-game">
+        <form class="d-flex" role="search" method="post">
+            {% csrf_token %}
+            <input class="field" type="text" id="search-input" placeholder="Entrez le nom d'une vidéo" name="testname">
+            <button type="submit" id="submit-btn">Submit</button>
+            <div id="video-list"></div>
+        </form>
+        <ul id="guess-list"></ul>
+        {% for elt in data %}
+        {% for key in elt %}
+        {% for key2 in datatrue %}
+        <div class="output">
+            {% if key.title == key2.title %}
+            <p class="output-true">{{ key.title }}</p>
+            {% else %}
+            <p class="output-false">{{ key.title }}</p>
+            {% endif %}
+            {% if key.views == key2.views %}
+            <p class="output-true">{{key.views }}</p>
+            {% else %}
+            <p class="output-false">{{ key.views }}</p>
+            {% endif %}
+            {% if key.feat == key2.feat %}
+            <p class="output-true">{{ key.feat }}</p>
+            {% else %}
+            <p class="output-false">{{ key.feat }}</p>
+            {% endif %}
+            {% if key.duration == key2.duration %}
+            <p class="output-true">{{ key.duration }}</p>
+            {% else %}
+            <p class="output-false">{{ key.duration }}</p>
+            {% endif %}
+            {% if key.irl_face_none == key2.irl_face_none %}
+            <p class="output-true">{{ key.irl_face_none }}</p>
+            {% else %}
+            <p class="output-false">{{ key.irl_face_none }}</p>
+            {% endif %}
+            {% if key.feat_members == key2.feat_members %}
+            <p class="output-true">{{ key.feat_members }}</p>
+            {% else %}
+            <p class="output-false">{{ key.feat_members }}</p>
+            {% endif %}
+            {% if key.pub_date == key2.pub_date %}
+            <p class="output-true">{{ key.pub_date }}</p>
+            {% else %}
+            <p class="output-false">{{ key.pub_date }}</p>
+            {% endif %}
+            {% if key.game == key2.game %}
+            <p class="output-true">{{ key.game }}</p>
+            {% else %}
+            <p class="output-false">{{ key.game }}</p>
+            {% endif %}
+            {% if key.game_title == key2.game_title %}
+            <p class="output-true">{{ key.game_title }}</p>
+            {% else %}
+            <p class="output-false">{{ key.game_title }}</p>
+            {% endif %}
+            {% if key.miniature == key2.miniature %}
+            <img src="{{ key.miniature }}" alt="thumbnail" width="50" class="output-true">
+            {% else %}
+            <img src="{{ key.miniature }}" alt="thumbnail" width="50" class="output-false">
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% endfor %}
+    </div>
 </body>
 </html>
